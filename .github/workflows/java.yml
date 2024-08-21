@@ -1,0 +1,19 @@
+name: Running Java File
+on: push
+
+jobs:
+    running_java:
+        runs-on: "windows-latest"
+        steps:
+        - name: "Clone repo"
+          uses: actions/checkout@v4
+
+        - name: "Setup JDK"
+          uses: actions/setup-java@v4
+          with:
+            distribution: 'temurin' # See 'Supported distributions' for available options
+            java-version: '21'
+
+        - name: "Running the java file"
+          run: java Welcome.java
+
